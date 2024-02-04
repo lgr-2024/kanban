@@ -1,3 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .shadow-raised {
+    @apply shadow-sm shadow-gray-500;
+  }
+  .list-width {
+    @apply w-[272px];
+  }
+  .list-header-style {
+    @apply px-1 border-2 rounded-t-md bg-tw-background-list border-tw-background-list;
+  }
+  .list-body-style {
+    @apply px-1 border-2 bg-tw-background-list border-tw-background-list;
+  }
+  .list-footer-style {
+    @apply px-1 border-2 rounded-b-md bg-tw-background-list border-tw-background-list;
+  }
+  .add-button-style {
+    @apply p-3 mb-2 text-white rounded-xl bg-tw-add-button-neutral hover:bg-tw-add-button-hovered active:bg-tw-add-button-pressed;
+  }
+  .input-style {
+    @apply py-1.5 px-2.5 cursor-pointer outline-none border-2
+    border-white bg-tw-background-input
+    hover:bg-tw-background-input-hovered
+    hover:border-tw-background-input-hovered
+    focus:bg-tw-background-input-pressed
+    focus:border-tw-hovered;
+  }
+  .textarea-style {
+    @apply py-1.5 px-2.5 cursor-pointer outline-none border-2
+    resize-none
+    hover:bg-tw-background-input-hovered
+    hover:border-tw-background-input-hovered
+    focus:bg-tw-background-input-pressed
+    focus:border-tw-hovered;
+  }
+  .is-editing {
+    @apply w-full;
+  }
+  .neutral-style {
+    @apply mt-2 cursor-pointer py-1.5 px-3 bg-tw-background-neutral hover:bg-tw-background-neutral-hovered
+    active:bg-tw-background-neutral-pressed;
+  }
+  .danger-style {
+    @apply mt-2 text-white cursor-pointer py-1.5 px-3 bg-tw-background-danger hover:bg-tw-background-danger-hovered
+    active:bg-tw-background-danger-pressed;
+  }
+}
