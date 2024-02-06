@@ -517,6 +517,9 @@ export default {
         "tw-space-negative-300": "-1.5rem",
         "tw-space-negative-400": "-2rem",
       },
+      boxShadow: {
+        "3xl": "inset 0 0 0 2 #091E4224",
+      },
     },
   },
   plugins: [],

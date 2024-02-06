@@ -11,29 +11,38 @@
     @apply transition duration-[85];
   }
 
+  /* TODO: background style */
+  .background-style {
+    @apply font-NotoSans bg-tw-background;
+  }
+  .background-position {
+    @apply flex flex-col min-h-screen;
+  }
+
   /* TODO: List 관련 style */
   .list-width {
     @apply w-[272px];
   }
   .list-total-style {
-    @apply pb-2 rounded-md  bg-tw-background-list;
+    @apply pb-2 rounded-xl  bg-tw-background-list;
   }
   .list-header-style {
-    @apply px-1 border-2 rounded-t-md border-tw-background-list;
+    @apply px-2 py-2 outline-none rounded-t-xl border-tw-background-list;
   }
   .list-body-style {
-    @apply px-1 border-2 border-tw-background-list;
+    @apply mx-1 border-2 border-tw-background-list;
   }
   .list-footer-style {
     @apply px-1 border-2 border-tw-background-list;
   }
 
-  /* TODO: card 관련 style */
+  /* TODO: (card) popup 관련 style */
   .add-card-popup-style {
     @apply list-width rounded-xl bg-tw-background-list;
   }
+  /* TODO: (card) add-button 관련 style */
   .add-card-button-style {
-    @apply rounded-md;
+    @apply rounded-lg;
   }
   .add-card-button-position {
     @apply flex items-center justify-start grow pl-2 pr-3 py-1.5;
@@ -43,13 +52,14 @@
     hover:bg-tw-background-neutral-hovered
     active:bg-tw-background-neutral-pressed;
   }
+  /* TODO: (card) button 관련 style */
   .card-button-style {
     @apply cursor-pointer border-2 border-white rounded-md;
   }
   .card-button-active {
     @apply bg-tw-background-card
     hover:border-tw-hovered
-    active:bg-tw-background-list;
+    /* active:bg-tw-background-list; */;
   }
 
   /* TODO: list 관련 style */
@@ -60,7 +70,7 @@
     @apply p-3 mb-2 text-white rounded-xl bg-tw-add-button-neutral hover:bg-tw-add-button-hovered active:bg-tw-add-button-pressed;
   }
   .add-list-button-style {
-    @apply px-3 py-1.5 rounded-sm text-white font-medium;
+    @apply px-3 py-1.5 rounded-[3px] text-white font-medium;
   }
   .add-list-button-active {
     @apply bg-tw-background-brand-bold
@@ -70,7 +80,7 @@
 
   /* TODO: input, textarea 공통 style */
   .input-textarea-style {
-    @apply py-1.5 px-2.5 cursor-pointer outline-none border-2 rounded-[4px] w-full
+    @apply pt-0.5 pr-2 pb-[1px] pl-[10.5px] cursor-pointer outline-none border-2 rounded-[4px] w-full h-8 
     border-white bg-tw-background-input
     hover:bg-tw-background-input-hovered
     hover:border-tw-background-input-hovered
@@ -84,8 +94,18 @@
 
   /* TODO: Pseudo class 조건문 종류 */
   .is-active-edit {
-    @apply hidden;
+    @apply block;
   }
+  /* .is-active-input {
+    @apply 
+  } */
+  /* .pseudo-after {
+    @apply after:content-['']
+    after:h-2
+    after:w-2
+    after:absolute
+    after:bg-black;
+  } */
 
   /* TODO: 일반(neutral) style */
   .neutral-style {
@@ -94,7 +114,17 @@
   }
   /* TODO: danger style (주로 red) */
   .danger-style {
-    @apply mt-2 text-white cursor-pointer py-1.5 px-3 bg-tw-background-danger hover:bg-tw-background-danger-hovered
-    active:bg-tw-background-danger-pressed;
+    @apply mt-2 text-white cursor-pointer py-1.5 px-3 bg-tw-background-danger-bold hover:bg-tw-background-danger-bold-hovered
+    active:bg-tw-background-danger-bold-pressed;
+  }
+
+  /* TODO: icon 크기 */
+  .icon {
+    @apply text-[16px];
+  }
+
+  /* TODO: Position Center */
+  .position-center {
+    @apply top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%];
   }
 }
