@@ -3,47 +3,96 @@
 @tailwind utilities;
 
 @layer components {
+  /* TODO: 공통 style */
   .shadow-raised {
     @apply shadow-sm shadow-gray-500;
   }
+  .transition-ease {
+    @apply transition duration-[85];
+  }
+
+  /* TODO: List 관련 style */
   .list-width {
     @apply w-[272px];
   }
+  .list-total-style {
+    @apply pb-2 rounded-md  bg-tw-background-list;
+  }
   .list-header-style {
-    @apply px-1 border-2 rounded-t-md bg-tw-background-list border-tw-background-list;
+    @apply px-1 border-2 rounded-t-md border-tw-background-list;
   }
   .list-body-style {
-    @apply px-1 border-2 bg-tw-background-list border-tw-background-list;
+    @apply px-1 border-2 border-tw-background-list;
   }
   .list-footer-style {
-    @apply px-1 border-2 rounded-b-md bg-tw-background-list border-tw-background-list;
+    @apply px-1 border-2 border-tw-background-list;
   }
-  .add-button-style {
+
+  /* TODO: card 관련 style */
+  .add-card-popup-style {
+    @apply list-width rounded-xl bg-tw-background-list;
+  }
+  .add-card-button-style {
+    @apply rounded-md;
+  }
+  .add-card-button-position {
+    @apply flex items-center justify-start grow pl-2 pr-3 py-1.5;
+  }
+  .add-card-button-active {
+    @apply bg-dynamic-button
+    hover:bg-tw-background-neutral-hovered
+    active:bg-tw-background-neutral-pressed;
+  }
+  .card-button-style {
+    @apply cursor-pointer border-2 border-white rounded-md;
+  }
+  .card-button-active {
+    @apply bg-tw-background-card
+    hover:border-tw-hovered
+    active:bg-tw-background-list;
+  }
+
+  /* TODO: list 관련 style */
+  .add-list-popup-style {
+    @apply p-2 list-width rounded-xl bg-tw-background-list;
+  }
+  .add-list-active-button-style {
     @apply p-3 mb-2 text-white rounded-xl bg-tw-add-button-neutral hover:bg-tw-add-button-hovered active:bg-tw-add-button-pressed;
   }
-  .input-style {
-    @apply py-1.5 px-2.5 cursor-pointer outline-none border-2
+  .add-list-button-style {
+    @apply px-3 py-1.5 rounded-sm text-white font-medium;
+  }
+  .add-list-button-active {
+    @apply bg-tw-background-brand-bold
+    hover:bg-tw-background-brand-bold-hovered
+    active:bg-tw-background-brand-bold-pressed;
+  }
+
+  /* TODO: input, textarea 공통 style */
+  .input-textarea-style {
+    @apply py-1.5 px-2.5 cursor-pointer outline-none border-2 rounded-[4px] w-full
     border-white bg-tw-background-input
     hover:bg-tw-background-input-hovered
     hover:border-tw-background-input-hovered
     focus:bg-tw-background-input-pressed
     focus:border-tw-hovered;
   }
-  .textarea-style {
-    @apply py-1.5 px-2.5 cursor-pointer outline-none border-2
-    resize-none
-    hover:bg-tw-background-input-hovered
-    hover:border-tw-background-input-hovered
-    focus:bg-tw-background-input-pressed
-    focus:border-tw-hovered;
+  /* TODO: textarea 관련 style */
+  .textarea-resize-none {
+    @apply resize-none;
   }
-  .is-editing {
-    @apply w-full;
+
+  /* TODO: Pseudo class 조건문 종류 */
+  .is-active-edit {
+    @apply hidden;
   }
+
+  /* TODO: 일반(neutral) style */
   .neutral-style {
     @apply mt-2 cursor-pointer py-1.5 px-3 bg-tw-background-neutral hover:bg-tw-background-neutral-hovered
     active:bg-tw-background-neutral-pressed;
   }
+  /* TODO: danger style (주로 red) */
   .danger-style {
     @apply mt-2 text-white cursor-pointer py-1.5 px-3 bg-tw-background-danger hover:bg-tw-background-danger-hovered
     active:bg-tw-background-danger-pressed;
