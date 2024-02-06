@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-2 leading-5 shadow-raised card-button-style card-button-active" draggable="true" @click="openPopup()"
+  <div class="mb-2 leading-5 shadow-raised card-button-style card-button-active" @click="openPopup()"
     @mouseover="activeEdit = true" @mouseleave="activeEdit = false">
     <div class="relative flex px-3 pt-2 pb-1">
       <button v-if="!activeInput" class="inline-block w-full mb-1 text-left" @click="">{{ props.card.title }}</button>
@@ -12,8 +12,6 @@
         class="mb-1" />
     </div>
   </div>
-
-  <!-- Popup components -->
 </template>
 
 <script setup>

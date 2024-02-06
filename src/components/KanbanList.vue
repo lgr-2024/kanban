@@ -15,7 +15,7 @@
       </div>
     </div>
     <ol class="list-body-style">
-      <li v-for="(   card, index   ) in    cardList   " :key="index">
+      <li v-for="(   card, index   ) in    cardList   " :key="index" draggable="true">
         <KanbanCard :card="card" :index="index" />
       </li>
     </ol>
@@ -60,37 +60,7 @@ let props = defineProps({
 let showListHeader = ref(true)
 let cardTitle = ref('')
 let cardList = ref([
-  // TODO: 더미 데이터 빼기
-  {
-    title: 'project 1',
-    notification: false,
-    description: '',
-    activity: [
-      {
-        profile: '사진',
-        memberName: '이름',
-        content: 'added this card to Doing',
-        date: 'Feb 3 at 3:28 PM'
-      }
-    ],
-    showPopup: false,
-    showDetailsInActivity: false,
-  },
-  {
-    title: 'project 2',
-    notification: false,
-    description: '',
-    activity: [
-      {
-        profile: '사진',
-        memberName: '이름',
-        content: 'added this card to Doing',
-        date: 'Feb 3 at 3:28 PM'
-      }
-    ],
-    showPopup: false,
-    showDetailsInActivity: false,
-  }
+  // TODO: 더미 데이터 빼기(newCard)
 ])
 let activeCardPopup = ref(false)
 let activeInput = ref(false)
