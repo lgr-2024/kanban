@@ -5,7 +5,7 @@
         <div>
           <h2 v-if="showTitle" @click="isShowTitle">{{ title }}</h2>
           <textarea v-else @keydown.esc="isShowTitle" class="textarea-style">{{ title }}</textarea>
-          <!-- <input class="input-style" /> -->
+          <!-- <input class="input-textarea-style" /> -->
         </div>
         <div>
           <p>in list
@@ -27,7 +27,7 @@
           </div>
           <div>
             <h3 class='mt-4 text-base font-semibold'>Activity</h3>
-            <div class="input-style">
+            <div class="input-textarea-style">
               <a href="#">Write a comment...</a>
             </div>
           </div>
