@@ -1,5 +1,5 @@
 <template>
-  <main class="background-style background-position">
+  <main class="background-style background-position basic-font-style">
     <div class="flex m-2">
       <!-- List 나열 -->
       <ol class="flex">
@@ -18,7 +18,7 @@
           Add Another List</button>
         <div v-else class="add-list-popup-style">
           <input v-model="listTitle" @keydown.enter="addList" placeholder="Enter list title..."
-            class="input-textarea-style transition-ease" />
+            class="input-textarea-style input-textarea-active transition-ease" />
           <div class="flex items-center justify-start gap-1 mt-2">
             <button @click="addList" class="add-list-button-active transition-ease add-list-button-style">Add
               list</button>
@@ -36,8 +36,8 @@
 </template>
 
 <script setup>
-import KanbanList from './components/KanbanList.vue'
-import KanbanPopup from './components/KanbanPopup.vue'
+import KanbanList from '@components/KanbanList.vue'
+import KanbanPopup from '@components/KanbanPopup.vue'
 import { ref } from 'vue'
 
 let Lists = ref([])

@@ -473,8 +473,8 @@ export default {
         "tw-elevation-surface-current": "#FFFFFF",
       },
       fontFamily: {
-        // font-NotoSans (font-{family})
-        NotoSans: [
+        // font-trello (font-{family})
+        trello: [
           "-apple-system",
           "BlinkMacSystemFont",
           "Segoe UI",

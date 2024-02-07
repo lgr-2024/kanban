@@ -32,7 +32,8 @@
       </button>
       <div v-else class="add-card-popup-style">
         <input v-model="cardTitle" @keydown.enter="addCardByEnterKey" type="text"
-          placeholder="Enter a title for this card..." class="input-textarea-style transition-ease" />
+          placeholder="Enter a title for this card..."
+          class="input-textarea-style input-textarea-active transition-ease" />
         <div class="flex items-center justify-start gap-1 mt-2">
           <button type="submit" @click="addCard" class="add-list-button-active transition-ease add-list-button-style">Add
             card
