@@ -3,9 +3,9 @@
     <div class="rounded-lg w-full bg-tw-background-list md:max-w-[768px] my-12 mx-2 relative">
       <div class="py-2 pr-12 pl-14">
         <div>
-          <h2 v-if="!activeTitleEditing" @click="isActiveTitleEditing">{{ title }}</h2>
+          <h2 v-if="!activeTitleEditing" @click="isActiveTitleEditing" class="text-xl font-semibold">{{ title }}</h2>
           <textarea v-else @keydown.esc="isActiveTitleEditing"
-            class="input-textarea-style input-textarea-active textarea-resize-none">{{ title }}</textarea>
+            class="text-xl font-semibold input-textarea-style input-textarea-active textarea-resize-none">{{ title }}</textarea>
         </div>
         <div>
           <p>in list

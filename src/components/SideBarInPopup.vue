@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full pb-2 pl-2 pr-4 md:w-48">
+  <div class="w-full px-4 py-2 md:w-48">
     <div>
       <h3 class="text-xs font-semibold text-tw-text-subtle">Add to Card</h3>
       <ul>

@@ -1,17 +1,19 @@
 <template>
-  <div class="flex-1 pb-2 pl-4 pr-2">
+  <div class="flex-1 px-4 py-2 md:pb-2 md:pl-4 md:pr-2">
     <div>
-      <h3 class="text-xs font-semibold text-tw-text-subtle">
-        <div class="absolute left-[-40px]">
-          <i class="fa-solid fa-table"></i>
-        </div>
-        Notifications
-      </h3>
-      <button @click='isActiveWatching' class="neutral-style neutral-active">{{ activeWatching }}</button>
+      <div class="m-2 md:pt-2 md:ml-10">
+        <h3 class="text-xs font-semibold text-tw-text-subtle">
+          <div class="absolute left-[-40px]">
+            <i class="fa-solid fa-table"></i>
+          </div>
+          Notifications
+        </h3>
+        <button @click='isActiveWatching' class="font-semibold neutral-style neutral-active">{{ activeWatching }}</button>
+      </div>
     </div>
     <div>
       <h3 class='relative py-2 mt-4 ml-10 text-base font-semibold text-tw-text-subtle'>
-        <div class="absolute left-[-40px]">
+        <div class="absolute left-[-34px]">
           <i class="fa-solid fa-align-justify"></i>
         </div>
         Description
@@ -23,15 +25,16 @@
       </div>
     </div>
     <div>
-      <h3 class='flex items-center justify-between py-2 mt-4 ml-10 text-base font-semibold text-tw-text-subtle'>
+      <h3 class='relative flex items-center justify-between py-2 mt-4 ml-10 text-base font-semibold text-tw-text-subtle'>
+        <div class="absolute left-[-34px]">
+          <i class="fa-solid fa-list"></i>
+        </div>
         <span>Activity</span>
         <button class="py-1.5 px-3 neutral-active" @click="isActiveHideDetails">{{ activeDetailsName }}</button>
       </h3>
       <div class="relative ml-10">
         <div class="absolute left-[-40px]">
-          <div class="flex items-center justify-center w-8 h-8 rounded-full bg-tw-icon-accent-orange">
-            <i class="fa-solid fa-user"></i>
-          </div>
+          <UserIcon />
         </div>
         <div>
           <input placeholder="Write a comment..."
@@ -39,6 +42,18 @@
         </div>
         <!-- <CommentEditor /> -->
       </div>
+      <ul v-if="activeDetailsName !== 'Show details'">
+        <li v-for="DetailsContent in DetailsList" class="relative py-2 ml-10">
+          <div class="absolute left-[-40px]">
+            <UserIcon />
+          </div>
+          <div>
+            <span class="font-semibold">{{ DetailsContent.name }}</span>
+            {{ DetailsContent.action }}
+          </div>
+          <span class="text-xs">{{ DetailsContent.date }}</span>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -46,10 +61,53 @@
 <script setup>
 import { ref } from 'vue'
 // import CommentEditor from './CommentEditor.vue'
+import UserIcon from './UserIcon.vue'
 
 let activeWatching = ref('Watch')
 let activeDescriptionEditing = ref(false)
 let activeDetailsName = ref('Show details')
+let DetailsList = ref([
+  {
+    name: '임경락',
+    action: 'sent this card to the board',
+    date: '5 hours ago'
+  },
+  {
+    name: '임경락',
+    action: 'sent this card to the board',
+    date: '5 hours ago'
+  },
+  {
+    name: '임경락',
+    action: 'sent this card to the board',
+    date: '5 hours ago'
+  },
+  {
+    name: '임경락',
+    action: 'sent this card to the board',
+    date: '5 hours ago'
+  },
+  {
+    name: '임경락',
+    action: 'sent this card to the board',
+    date: '5 hours ago'
+  },
+  {
+    name: '임경락',
+    action: 'sent this card to the board',
+    date: '5 hours ago'
+  },
+  {
+    name: '임경락',
+    action: 'sent this card to the board',
+    date: '5 hours ago'
+  },
+])
+// let DetailsContent = ref({
+//   name: '임경락',
+//   action: 'sent this card to the board',
+//   date: '5 hours ago'
+// })
 let focusCommentEditor = ref(false)
 
 const isActiveWatching = () => {
