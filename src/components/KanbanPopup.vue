@@ -1,9 +1,9 @@
 <template>
   <div
     v-if="activePopup"
-    class="absolute top-0 left-0 flex items-start justify-center w-full h-screen overflow-hidden z-[1] bg-tw-background-overlay">
+    class="fixed top-0 left-0 flex items-start justify-center w-full h-full overflow-y-auto z-[1] bg-tw-background-overlay">
     <div
-      class="rounded-lg w-full bg-tw-background-list md:max-w-[768px] my-12 mx-2 relative">
+      class="rounded-lg w-auto md:w-full bg-tw-background-list md:max-w-[768px] my-9 mx-2 md:mt-12 md:mb-[80px] md:mx-0 relative">
       <div
         class="pop-over left-[94.4531px] top-[60px]"
         :class="{ 'is-shown': activeMoveCard }">
