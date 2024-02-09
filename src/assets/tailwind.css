@@ -19,11 +19,25 @@
     @apply flex items-center justify-center;
   }
 
+  .body-style {
+    @apply z-0 h-full overflow-hidden bg-tw-surface;
+  }
+
   .background-style {
     @apply bg-tw-background;
   }
   .background-position {
-    @apply flex flex-col min-h-screen;
+    @apply h-full bg-[50%] z-[1] overflow-hidden;
+  }
+
+  .board-main-content {
+    @apply flex flex-col h-full mr-0;
+  }
+  .board-canvas {
+    @apply relative flex-grow h-full mt-3;
+  }
+  #board {
+    @apply pb-2 mb-2 overflow-x-auto overflow-y-hidden select-none whitespace-nowrap snap-mandatory;
   }
 
   .shadow-raised {
@@ -37,7 +51,7 @@
     @apply w-[272px];
   }
   .list-total-style {
-    @apply pb-2 rounded-xl bg-tw-background-list;
+    @apply flex flex-col justify-between max-h-full pb-2 align-top rounded-xl bg-tw-background-list;
   }
   .list-header-style {
     @apply px-2 py-2 outline-none rounded-t-xl border-tw-background-list;
@@ -47,6 +61,10 @@
   }
   .list-footer-style {
     @apply px-1 border-2 border-tw-background-list;
+  }
+
+  .item-style {
+    @apply px-1.5 self-start shrink-0 block h-full whitespace-nowrap;
   }
 
   .add-card-popup-style {
