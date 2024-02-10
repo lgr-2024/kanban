@@ -1,5 +1,5 @@
 <template>
-  <main class="h-screen background-style background-position basic-font-style">
+  <!-- <main class="h-screen background-style background-position basic-font-style">
     <div class="board-main-content">
       <div class="board-canvas">
         <div class="flex h-full">
@@ -56,19 +56,31 @@
         </div>
       </div>
     </div>
-  </main>
+  </main> -->
+  <DragAndDrop />
 </template>
 
 <script setup>
-import KanbanList from "@components/KanbanList.vue";
-import { ref } from "vue";
+// import KanbanList from "@components/KanbanList.vue";
+import DragAndDrop from "@components/DragAndDrop.vue";
+// import { ref } from "vue";
 
-let Lists = ref([]);
-let listsLength = ref(Lists.value.length + 1);
-let activeListPopup = ref(false);
-let list = ref({});
-let listTitle = ref("");
-let activePopup = ref(false);
+// const overDrag = event => {
+//   console.log("kanbanItemsArray: ", kanbanItemsArray);
+
+//   const siblings = [
+//     ...kanbanItemsArray.querySelectorAll(".kanban-item:not(.dragging)"),
+//   ];
+
+//   console.log(siblings);
+// };
+
+// let Lists = ref([]);
+// let listsLength = ref(Lists.value.length + 1);
+// let activeListPopup = ref(false);
+// let list = ref({});
+// let listTitle = ref("");
+// let activePopup = ref(false);
 
 // 1. List 추가
 /**
@@ -76,42 +88,44 @@ let activePopup = ref(false);
  * 1.2. List 추가
  */
 // COMPLETED: 1.1. Popup 활성화
-const isActiveListPopup = () => {
-  activeListPopup.value = !activeListPopup.value;
-};
-// COMPLETED: 1.2. List 추가
-const addList = () => {
-  const newList = {
-    title: listTitle.value,
-    list: listsLength,
-  };
-  Lists.value.push(newList);
-  console.log(newList.list);
-  // 초기화
-  listTitle.value = "";
-  activeListPopup.value = !activeListPopup.value;
-  listsLength = Lists.value.length + 1;
-};
+// const isActiveListPopup = () => {
+//   activeListPopup.value = !activeListPopup.value;
+// };
+// // COMPLETED: 1.2. List 추가
+// const addList = () => {
+//   const newList = {
+//     id: Lists.value.length,
+//     title: listTitle.value,
+//     list: Lists.value.length + 1,
+//   };
+//   Lists.value.push(newList);
+//   console.log(newList.list);
+//   // 초기화
+//   listTitle.value = "";
+//   activeListPopup.value = !activeListPopup.value;
+//   listsLength = Lists.value.length + 1;
+// };
 
-// COMPLETED: 2. List 수정
-const updateList = (newValue, index) => {
-  console.log(newValue, index);
-  Lists.value[index] = newValue;
-};
+// // COMPLETED: 2. List 수정
+// const updateList = (newValue, index) => {
+//   console.log(newValue, index);
+//   Lists.value[index] = newValue;
+// };
 
-// TODO: Drag
-const startDrag = (event, index) => {
-  console.log(index);
-  event.dataTransfer.dropEffect = "move";
-  event.dataTransfer.effectAllowed = "move";
-  event.dataTransfer.setData("itemIndex", index);
-};
-const onDrop = (event, list) => {
-  console.log("list: ", list);
-  const itemIndex = event.dataTransfer.getData("itemIndex");
-  const item = Lists.value.find(i => i === itemIndex);
-  item.list = list + 1;
-};
+// // TODO: Drag
+// const startDrag = (event, index) => {
+//   console.log(index);
+//   event.dataTransfer.dropEffect = "move";
+//   event.dataTransfer.effectAllowed = "move";
+//   event.dataTransfer.setData("itemIndex", index);
+// };
+// const onDrop = (event, list) => {
+//   const itemIndex = event.dataTransfer.getData("itemIndex");
+//   const item = Lists.value.find(i => i === itemIndex);
+//   console.log("list: ", list);
+//   console.log("item.list: ", item.list);
+//   item.list = list;
+// };
 </script>
 
 <style scoped></style>
