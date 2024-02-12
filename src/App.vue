@@ -1,5 +1,5 @@
 <template>
-  <main class="h-screen background-style background-position basic-font-style">
+  <!-- <main class="h-screen background-style background-position basic-font-style">
     <div class="board-main-content">
       <div class="board-canvas">
         <div class="flex h-full">
@@ -83,16 +83,32 @@
       </div>
     </div>
     <DragAndDrop />
-  </main>
-  <!-- <TestComponent /> -->
+  </main> -->
+  <NavBar :category="category" @setCategory="setCategory" />
+  <!-- <component :is="ComponentList[category]"></component> -->
+  <hr />
+  <router-view></router-view>
 </template>
 
 <script setup>
 import KanbanList from "@components/KanbanList.vue";
 import draggable from 'vuedraggable'
-// import TestComponent from '@components/TestComponent.vue'
+import NavBar from '@components/test/NavBar.vue'
+import MainComponent from '@components/test/MainComponent.vue'
+import ListComponent from '@components/test/ListComponent.vue'
+import UploadComponent from '@components/test/UploadComponent.vue'
 // import DragAndDrop from "@components/DragAndDrop.vue";
 import { ref } from "vue";
+
+const category = ref('Main')
+const setCategory = (data) => {
+  category.value = data;
+}
+const ComponentList = {
+  Main: MainComponent,
+  List: ListComponent,
+  Upload: UploadComponent,
+}
 
 // @handleAddCard="addCard(element)" @handleIsActiveCardPopup="isActiveCardPopup"
 // @handleAddCardByEnterKey="addCardByEnterKey(element)" : activeCardPopup = "activeCardPopup"
