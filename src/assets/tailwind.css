@@ -198,4 +198,10 @@
     @apply mt-2 text-white cursor-pointer py-1.5 px-3 bg-tw-background-danger-bold hover:bg-tw-background-danger-bold-hovered
     active:bg-tw-background-danger-bold-pressed;
   }
+
+  /* COMPLETED: draggable style */
+  .ghost {
+    opacity: 0.25;
+    background: gray;
+  }
 }

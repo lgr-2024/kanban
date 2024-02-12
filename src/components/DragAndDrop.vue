@@ -5,8 +5,7 @@
         <div class="kanban-list">
           <h3>{{ element.title }}</h3>
           <template v-if="element.card.length > 0">
-            <draggable :list="element.card" tag="ul" group="list" ghost-class="ghost" class="list-group kanban-cards"
-              @drop="addCard(element)">
+            <draggable :list="element.card" tag="ul" group="list" ghost-class="ghost" class="list-group kanban-cards">
               <template v-for="(element, index) in element.card" :itemKey="index" #item="{ element }"
                 class="list-group-item">
                 <div>{{ element.cardName }}</div>
@@ -78,9 +77,7 @@ const addListInKanbanLists = () => {
   const newList = {
     id: kanbanLists.value.length,
     title: 'hello',
-    card: [
-
-    ],
+    card: [],
     empty: [
       { emptyName: 'empty' }
     ]
