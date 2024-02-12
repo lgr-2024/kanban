@@ -148,6 +148,9 @@
   .nch-button {
     @apply items-center bg-tw-background-neutral border-none border-0 border-transparent rounded-[3px] shadow-none box-border text-tw-text cursor-pointer inline-flex text-sm font-medium justify-center py-1.5 px-3 no-underline duration-[85ms] transition-[background-color_border-color_box-shadow] ease-out whitespace-normal;
   }
+  .nch-button-active {
+    @apply cursor-pointer bg-tw-background-brand-bold hover:bg-tw-background-brand-bold-hovered active:bg-tw-background-brand-bold-pressed;
+  }
   .nch-button--primary {
     @apply border-0 border-transparent border-none shadow-none bg-tw-background-brand-bold text-tw-text-inverse;
   }
@@ -182,20 +185,20 @@
 
   /* TODO: 일반(neutral) style */
   .neutral-style {
-    @apply mt-2 py-1.5 px-3;
+    @apply mt-2 py-1.5 px-3 rounded-[3px];
   }
   .neutral-active {
     @apply cursor-pointer bg-tw-background-neutral hover:bg-tw-background-neutral-hovered active:bg-tw-background-neutral-pressed;
   }
   .transparent-style {
-    @apply rounded-sm;
+    @apply py-1.5 px-3 rounded-[3px];
   }
   .transparent-active {
     @apply cursor-pointer bg-tw-UNSAFE-transparent hover:bg-tw-background-neutral-hovered active:bg-tw-background-neutral-pressed;
   }
   /* TODO: danger style */
   .danger-style {
-    @apply mt-2 text-white cursor-pointer py-1.5 px-3 bg-tw-background-danger-bold hover:bg-tw-background-danger-bold-hovered
+    @apply mt-2 text-white cursor-pointer py-1.5 px-3 rounded-[3px] bg-tw-background-danger-bold hover:bg-tw-background-danger-bold-hovered
     active:bg-tw-background-danger-bold-pressed;
   }
 

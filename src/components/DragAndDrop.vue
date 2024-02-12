@@ -86,10 +86,6 @@ const addListInKanbanLists = () => {
   kanbanLists.value.push(newList)
 }
 
-const addCardInKanbanCards = (list) => {
-  list.card.push({ cardName: 'New Card' });
-}
-
 </script>
 
 <style scoped>

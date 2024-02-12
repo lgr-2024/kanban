@@ -4,27 +4,27 @@
       <h3 class="text-xs font-semibold text-tw-text-subtle">Add to Card</h3>
       <ul>
         <div class="flex gap-2 md:block">
-          <li class="w-full font-semibold neutral-style neutral-active">
+          <li class="w-full font-semibold neutral-style neutral-active transition-ease ">
             <button>Members</button>
           </li>
-          <li class="w-full font-semibold neutral-style neutral-active">
+          <li class="w-full font-semibold neutral-style neutral-active transition-ease">
             <button>Labels</button>
           </li>
         </div>
-        <li class="font-semibold neutral-style neutral-active">
+        <li class="font-semibold neutral-style neutral-active transition-ease">
           <button>Checklist</button>
         </li>
-        <li class="w-1/2 font-semibold neutral-style neutral-active md:w-full">
+        <li class="w-1/2 font-semibold neutral-style neutral-active md:w-full transition-ease">
           <button>Dates</button>
         </li>
-        <li class="font-semibold neutral-style neutral-active">
+        <li class="font-semibold neutral-style neutral-active transition-ease">
           <button>Attachment</button>
         </li>
         <div class="flex gap-2 md:block">
-          <li class="w-full font-semibold neutral-style neutral-active">
+          <li class="w-full font-semibold neutral-style neutral-active transition-ease">
             <button>Cover</button>
           </li>
-          <li class="w-full font-semibold neutral-style neutral-active">
+          <li class="w-full font-semibold neutral-style neutral-active transition-ease">
             <button>Custom Fields</button>
           </li>
         </div>
@@ -50,31 +50,31 @@
       <h3 class="mt-4 text-xs font-semibold text-tw-text-subtle">Actions</h3>
       <ul>
         <div class="flex gap-2 md:block">
-          <li class="w-full font-semibold neutral-style neutral-active">
+          <li class="w-full font-semibold neutral-style neutral-active transition-ease">
             <button>Move</button>
           </li>
-          <li class="w-full font-semibold neutral-style neutral-active">
+          <li class="w-full font-semibold neutral-style neutral-active transition-ease">
             <button>Copy</button>
           </li>
         </div>
-        <li class="font-semibold neutral-style neutral-active">
+        <li class="font-semibold neutral-style neutral-active transition-ease">
           <button>Make template</button>
         </li>
         <hr class="mt-2 h-[1px] border-0 bg-tw-border font-semibold" />
         <li v-if="!activeDelete" @click="isActiveArchive"
-          class="w-1/2 font-semibold neutral-style neutral-active md:w-full">
+          class="w-1/2 font-semibold neutral-style neutral-active md:w-full transition-ease">
           <button>Archive</button>
         </li>
         <li v-else class="flex gap-2 font-semibold md:block">
-          <div class="w-full neutral-style neutral-active" @click="isActiveArchive">
+          <div class="w-full neutral-style neutral-active transition-ease" @click="isActiveArchive">
             <button>Send to board</button>
           </div>
-          <div class="w-full font-semibold danger-style">
+          <div class="w-full font-semibold danger-style transition-ease">
             <button>Delete</button>
           </div>
         </li>
       </ul>
-      <div class="font-semibold neutral-style neutral-active">Share</div>
+      <div class="font-semibold neutral-style neutral-active transition-ease">Share</div>
     </div>
   </div>
 </template>
