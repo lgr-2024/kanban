@@ -28,6 +28,9 @@ let props = defineProps({
   card: {
     type: Object,
   },
+  index: {
+    type: Number,
+  }
 });
 let activeEdit = ref(false);
 let activeInput = ref(false);
