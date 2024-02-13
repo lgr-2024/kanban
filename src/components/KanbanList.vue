@@ -6,7 +6,7 @@
           <h2 v-if="showListHeader" @click="isShowListHeader" class="w-[214px] pl-3 pr-2 py-1.5 truncate">
             {{ props.kanbanList.title }}
           </h2>
-          <input v-else :value="props.List" @keydown.esc="isShowListHeader" @keydown.enter="isShowListHeader"
+          <input v-else :value="props.kanbanList.title" @keydown.esc="isShowListHeader" @keydown.enter="isShowListHeader"
             @input="handleListTitleInput" :class="{ focus: activeInput }"
             class="shadow-[inset_0_0_0_2_blue] input-textarea-style" />
         </div>

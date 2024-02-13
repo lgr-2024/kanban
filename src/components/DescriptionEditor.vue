@@ -1,7 +1,7 @@
 <template>
-  <div v-if="activeDescriptionEditing === 'empty'" @click="isActiveDescriptionEditing('editing')">
-    <input placeholder="Write a comment..."
-      class="mb-2 border-none text-tw-text-subtlest input-textarea-style input-textarea-active shadow-raised transition-ease" />
+  <div v-if="activeDescriptionEditing === 'empty'" @click="isActiveDescriptionEditing('editing')"
+    class="neutral-style neutral-active transition-ease">
+    <a href="#" class="block font-medium">{{ viewDescription }}</a>
   </div>
   <div v-else-if="activeDescriptionEditing === 'update'" @click="isActiveDescriptionEditing('editing')">
     <a href="#" class="block">{{ viewDescription }}</a>
@@ -59,26 +59,29 @@
           </div>
         </div>
         <div>
-          <textarea v-model="commentValue" @input="checkTextarea" @keydown.esc="deleteDescription"
+          <textarea v-model="descriptionValue"
             class="box-border w-full p-5 border-none cursor-pointer input-textarea-border-none-style textarea-resize-none input-textarea-active"
             placeholder="WRITE A COMMENT..." />
         </div>
       </div>
       <div class="flex flex-row mt-2">
-        <button @click="updateDescription, handleSaveButton"
-          :class="{ 'disabled-button-style nch-button': !activeSaveButton, 'mr-1.5 nch-button nch-button--primary nch-button-active transition-ease': activeSaveButton }"
-          :disabled="!activeSaveButton" class="">Save</button>
+        <button @click="updateDescription"
+          class="mr-1.5 nch-button nch-button--primary nch-button-active  transition-ease">Save</button>
+        <button @click="deleteDescription('empty')"
+          class="transparent-style transparent-active transition-ease">Cancel</button>
       </div>
+      <a href="#" class="absolute right-0 bottom-[0.75px] neutral-style neutral-active font-semibold transition-ease">
+        <span>Formatting help</span>
+      </a>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, defineEmits } from 'vue'
+import { ref } from 'vue'
 let activeDescriptionEditing = ref('empty');
 let viewDescription = ref('Add a more detailed description...')
-let commentValue = ref('')
-let activeSaveButton = ref(false)
+let descriptionValue = ref('')
 
 const isActiveDescriptionEditing = (edtingState) => {
   activeDescriptionEditing.value = edtingState
@@ -86,26 +89,16 @@ const isActiveDescriptionEditing = (edtingState) => {
 };
 
 const updateDescription = () => {
-  if (commentValue.value.trim() !== '') {
-    viewDescription.value = commentValue.value
+  if (descriptionValue.value.trim() !== '') {
+    viewDescription.value = descriptionValue.value
   }
   activeDescriptionEditing.value = 'update';
 }
 
-const emit = defineEmits(['handleSaveButton'])
-const handleSaveButton = () => {
-  emit('handleSaveButton')
-}
-
-const checkTextarea = () => {
-  console.log(commentValue.value.trim())
-  activeSaveButton = commentValue.value.trim() !== ''
-}
-
 const deleteDescription = () => {
-  if (commentValue.value.trim() !== '') {
+  if (descriptionValue.value.trim() !== '') {
     viewDescription.value = 'Add a more detailed description...'
-    commentValue.value = ''
+    descriptionValue.value = ''
   }
   activeDescriptionEditing.value = 'empty';
 }
