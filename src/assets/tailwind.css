@@ -155,14 +155,21 @@
     @apply border-0 border-transparent border-none shadow-none bg-tw-background-brand-bold text-tw-text-inverse;
   }
 
+  .disabled-button-style {
+    @apply disabled:hover:cursor-not-allowed;
+  }
+
   .input-textarea-style {
-    @apply pt-0.5 pr-2 pb-[1px] pl-[10.5px] cursor-pointer outline-none border-2 rounded-[4px] w-full h-8;
+    @apply pt-0.5 pr-2 pb-[1px] pl-[10.5px] cursor-pointer outline-none border-2 rounded-[4px] w-full h-8 overflow-hidden;
   }
   .input-textarea-active {
     @apply border-white bg-tw-background-input hover:bg-tw-background-input-hovered hover:border-tw-background-input-hovered focus:bg-tw-background-input-pressed focus:border-tw-border-focused;
   }
   .textarea-resize-none {
     @apply resize-none;
+  }
+  .input-textarea-border-none-style {
+    @apply outline-none;
   }
 
   /* TODO: Pseudo class */

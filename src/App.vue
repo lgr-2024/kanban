@@ -82,172 +82,177 @@
         </div>
       </div>
     </div>
-    <DragAndDrop />
   </main> -->
-  <NavBar :category="category" @setCategory="setCategory" />
+
+  <!-- <DragAndDrop /> -->
+  <!-- <NavBar :category="category" @setCategory="setCategory" /> -->
   <!-- <component :is="ComponentList[category]"></component> -->
-  <hr />
-  <router-view></router-view>
+  <!-- <hr /> -->
+  <!-- <router-view></router-view> -->
+
+  <KanbanLists />
 </template>
 
 <script setup>
 import KanbanList from "@components/KanbanList.vue";
 import draggable from 'vuedraggable'
-import NavBar from '@components/test/NavBar.vue'
-import MainComponent from '@components/test/MainComponent.vue'
-import ListComponent from '@components/test/ListComponent.vue'
-import UploadComponent from '@components/test/UploadComponent.vue'
+import KanbanLists from '@components/kanban/KanbanLists.vue'
+// import NavBar from '@components/test/NavBar.vue'
+// import MainComponent from '@components/test/MainComponent.vue'
+// import ListComponent from '@components/test/ListComponent.vue'
+// import UploadComponent from '@components/test/UploadComponent.vue'
 // import DragAndDrop from "@components/DragAndDrop.vue";
-import { ref } from "vue";
+// import { ref } from "vue";
 
-const category = ref('Main')
-const setCategory = (data) => {
-  category.value = data;
-}
-const ComponentList = {
-  Main: MainComponent,
-  List: ListComponent,
-  Upload: UploadComponent,
-}
+// const category = ref('Main')
+// const setCategory = (data) => {
+//   category.value = data;
+// }
+// const ComponentList = {
+//   Main: MainComponent,
+//   List: ListComponent,
+//   Upload: UploadComponent,
+// }
 
 // @handleAddCard="addCard(element)" @handleIsActiveCardPopup="isActiveCardPopup"
 // @handleAddCardByEnterKey="addCardByEnterKey(element)" : activeCardPopup = "activeCardPopup"
 // v - model="cardTitle"
 
-let enabled = ref(true)
-let kanbanLists = ref({
-  list: [
-    {
-      id: 0, title: "list A", activeCardPopup: false, cards: [
-        { id: 0, cardTitle: 'cardName A-1' },
-        { id: 1, cardTitle: 'cardName A-2' },
-        { id: 2, cardTitle: 'cardName A-3' },
-      ], empty: [
-        { emptyName: 'empty' }
-      ]
-    },
-    // {
-    //   id: 1, title: "list B", cards: [
-    //     { id: 0, cardTitle: 'cardName B-1' },
-    //     { id: 1, cardTitle: 'cardName B-2' },
-    //     { id: 2, cardTitle: 'cardName B-3' },
-    //   ], empty: [
-    //     { emptyName: 'empty' }
-    //   ]
-    // },
-    // {
-    //   id: 2, title: "list C", cards: [
-    //     { id: 0, cardTitle: 'cardName C-1' },
-    //     { id: 1, cardTitle: 'cardName C-2' },
-    //     { id: 2, cardTitle: 'cardName C-3' },
-    //   ], empty: [
-    //     { emptyName: 'empty' }
-    //   ]
-    // },
-    // {
-    //   id: 3, title: "list D", cards: [
-    //     { id: 0, cardTitle: 'cardName D-1' },
-    //     { id: 1, cardTitle: 'cardName D-2' },
-    //     { id: 2, cardTitle: 'cardName D-3' },
-    //   ], empty: [
-    //     { emptyName: 'empty' }
-    //   ]
-    // },
-  ], empty: [
-    { emptyName: 'empty' }
-  ]
-});
+// let enabled = ref(true)
+// let kanbanLists = ref({
+//   list: [
+//     {
+//       id: 0, title: "list A", activeCardPopup: false, cards: [
+//         { id: 0, cardTitle: 'cardName A-1' },
+//         { id: 1, cardTitle: 'cardName A-2' },
+//         { id: 2, cardTitle: 'cardName A-3' },
+//       ], empty: [
+//         { emptyName: 'empty' }
+//       ]
+//     },
+//     {
+//       id: 1, title: "list B", cards: [
+//         { id: 0, cardTitle: 'cardName B-1' },
+//         { id: 1, cardTitle: 'cardName B-2' },
+//         { id: 2, cardTitle: 'cardName B-3' },
+//       ], empty: [
+//         { emptyName: 'empty' }
+//       ]
+//     },
+//     {
+//       id: 2, title: "list C", cards: [
+//         { id: 0, cardTitle: 'cardName C-1' },
+//         { id: 1, cardTitle: 'cardName C-2' },
+//         { id: 2, cardTitle: 'cardName C-3' },
+//       ], empty: [
+//         { emptyName: 'empty' }
+//       ]
+//     },
+//     // {
+//     //   id: 3, title: "list D", cards: [
+//     //     { id: 0, cardTitle: 'cardName D-1' },
+//     //     { id: 1, cardTitle: 'cardName D-2' },
+//     //     { id: 2, cardTitle: 'cardName D-3' },
+//     //   ], empty: [
+//     //     { emptyName: 'empty' }
+//     //   ]
+//     // },
+//   ], empty: [
+//     { emptyName: 'empty' }
+//   ]
+// });
 
-let activeListPopup = ref(false);
-let kanbanListTitle = ref("");
+// let activeListPopup = ref(false);
+// let kanbanListTitle = ref("");
 
-// 1. List 추가
-/**
- * 1.1. Popup 활성화
- * 1.2. List 추가
- */
-// COMPLETED: 1.1. Popup 활성화
-const isActiveKanbanListPopup = () => {
-  activeListPopup.value = !activeListPopup.value;
-};
-// COMPLETED: 1.2. List 추가
-const addListInKanbanLists = () => {
-  console.log('hello')
-  const newList = {
-    id: kanbanLists.value.list.length,
-    title: kanbanListTitle.value,
-    activeCardPopup: false,
-    cards: [],
-    empty: [
-      { emptyName: 'empty' }
-    ]
-  };
+// // 1. List 추가
+// /**
+//  * 1.1. Popup 활성화
+//  * 1.2. List 추가
+//  */
+// // COMPLETED: 1.1. Popup 활성화
+// const isActiveKanbanListPopup = () => {
+//   activeListPopup.value = !activeListPopup.value;
+// };
+// // COMPLETED: 1.2. List 추가
+// const addListInKanbanLists = () => {
+//   console.log('hello')
+//   const newList = {
+//     id: kanbanLists.value.list.length,
+//     title: kanbanListTitle.value,
+//     activeCardPopup: false,
+//     cards: [],
+//     empty: [
+//       { emptyName: 'empty' }
+//     ]
+//   };
 
-  kanbanLists.value.list.push(newList)
-  console.log('kanbanLists.value.list: ', kanbanLists.value.list)
+//   kanbanLists.value.list.push(newList)
+//   console.log('kanbanLists.value.list: ', kanbanLists.value.list)
 
-  // kanbanLists.value = {
-  //   ...kanbanLists.value,
-  //   list: [...kanbanLists.value.list, newList]
-  // };
+//   // kanbanLists.value = {
+//   //   ...kanbanLists.value,
+//   //   list: [...kanbanLists.value.list, newList]
+//   // };
 
-  // 초기화
-  kanbanListTitle.value = "";
-  activeListPopup.value = !activeListPopup.value;
-};
+//   // 초기화
+//   kanbanListTitle.value = "";
+//   activeListPopup.value = !activeListPopup.value;
+// };
 
-// COMPLETED: 2. List 수정
-const updateListInKanbanLists = (newValue, index) => {
-  console.log(newValue, index);
-  kanbanLists.list[index] = newValue;
-};
+// // COMPLETED: 2. List 수정
+// const updateListInKanbanLists = (newValue, index) => {
+//   console.log(newValue, index);
+//   kanbanLists.list[index] = newValue;
+// };
 
-// COMPLETED: Card 추가
-let cardTitle = ref("");
-const addCardInKanbanList = (kanbanList, index) => {
-  if (cardTitle.value.trim() !== "") {
-    const newCard = {
-      id: kanbanLists.value.list[index].cards.length,
-      cardTitle: cardTitle.value,
-      // notification: false,
-      // description: "",
-      // activity: [
-      //   {
-      //     profile: "사진",
-      //     memberName: "이름",
-      //     content: "added this card to Doing",
-      //     date: "Feb 3 at 3:28 PM",
-      //   },
-      // ],
-      // showPopup: false,
-      // showDetailsInActivity: false,
-    };
-    console.log(newCard)
-    kanbanLists.value.list[index].cards.push(newCard)
-
-
-    // kanbanLists.value.list[index] = {
-    //   ...kanbanLists.value.list[index],
-    //   cards: [...kanbanLists.value.list[index].cards, newCard]
-    // };
-    console.log(kanbanLists.value.list[index].cards)
-    isActiveCardPopup(kanbanList)
-  }
-
-  // 초기화
-  cardTitle.value = "";
-};
+// // COMPLETED: Card 추가
+// let cardTitle = ref("");
+// const addCardInKanbanList = (kanbanList, index) => {
+//   if (cardTitle.value.trim() !== "") {
+//     const newCard = {
+//       id: kanbanLists.value.list[index].cards.length,
+//       cardTitle: cardTitle.value,
+//       // notification: false,
+//       // description: "",
+//       // activity: [
+//       //   {
+//       //     profile: "사진",
+//       //     memberName: "이름",
+//       //     content: "added this card to Doing",
+//       //     date: "Feb 3 at 3:28 PM",
+//       //   },
+//       // ],
+//       // showPopup: false,
+//       // showDetailsInActivity: false,
+//     };
+//     console.log(newCard)
+//     kanbanLists.value.list[index].cards.push(newCard)
 
 
-const addCardInKanbanListByEnterKey = (kanbanList, index) => {
-  addCardInKanbanList(kanbanList, index);
-  isActiveCardPopup(kanbanList);
-};
+//     // kanbanLists.value.list[index] = {
+//     //   ...kanbanLists.value.list[index],
+//     //   cards: [...kanbanLists.value.list[index].cards, newCard]
+//     // };
+//     console.log(kanbanLists.value.list[index].cards)
+//     isActiveCardPopup(kanbanList)
+//   }
 
-// COMPLETED: Card 수정
-const isActiveCardPopup = (kanbanList) => {
-  kanbanList.activeCardPopup = !kanbanList.activeCardPopup;
-};
+//   // 초기화
+//   cardTitle.value = "";
+// };
+
+
+// const addCardInKanbanListByEnterKey = (kanbanList, index) => {
+//   addCardInKanbanList(kanbanList, index);
+//   isActiveCardPopup(kanbanList);
+// };
+
+// // COMPLETED: Card 수정
+// const isActiveCardPopup = (kanbanList) => {
+//   kanbanList.activeCardPopup = !kanbanList.activeCardPopup;
+// };
+
 </script>
 
 <style scoped></style>
