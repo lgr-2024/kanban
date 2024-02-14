@@ -1,11 +1,11 @@
 <template>
   <div class="shadow-raised list-total-style list-width">
+    <!-- Header Area -->
     <header class="list-header-style">
       <div class="flex">
         <div class="flex items-center grow">
           <h2 v-if="showListHeader" @click="isShowListHeader" class="w-[214px] pl-3 pr-2 py-1.5 truncate">{{
             props.kanbanList.title }}</h2>
-          <!-- input 자리 -->
           <input v-else :value="props.kanbanList.title" @keydown.esc="isShowListHeader" @keydown.enter="isShowListHeader"
             @input="updateListInKanbanListsMethod($event)" :class="{ focus: activeInput }"
             class="shadow-[inset_0_0_0_2_blue] input-textarea-style" />
@@ -15,19 +15,21 @@
         </button>
       </div>
     </header>
+
+    <!-- Article Area -->
     <article>
-      <template v-if="store.state.kanbanLists.lists[props.kanbanList.id].cards.length > 0">
-        <draggable :list="store.state.kanbanLists.lists[props.kanbanList.id].cards" tag="ol" group="cards" item-key="id"
+      <template v-if="store.state.kanbanLists.lists[props.listIndex].cards.length > 0">
+        <draggable :list="store.state.kanbanLists.lists[props.listIndex].cards" tag="ol" group="cards" item-key="id"
           ghost-class="ghost" class="list-body-style">
           <template #item="{ element }">
             <div>
-              <KanbanCard :card="element" :listId="props.kanbanList.id" />
+              <KanbanCard :card="element" :listId="props.listIndex" />
             </div>
           </template>
         </draggable>
       </template>
       <template v-else>
-        <draggable :list="store.state.kanbanLists.lists[props.kanbanList.id].cards" tag="ol" group="cards" item-key="id"
+        <draggable :list="store.state.kanbanLists.lists[props.listIndex].cards" tag="ol" group="cards" item-key="id"
           ghost-class="ghost" class="list-body-style">
           <template #item="{ element }">
             <li :key="element.id">
@@ -45,7 +47,7 @@
         <span class="mr-2">
           <i class="fa-solid fa-plus"></i>
         </span>
-        Add a card!!
+        Add a card
       </button>
       <button v-if="!isActiveCreateCardButton" class="p-2 transition-ease add-card-button-style add-card-button-active">
         <i class="fa-solid fa-clone"></i>
@@ -76,6 +78,9 @@ import { useStore } from 'vuex'
 const props = defineProps({
   kanbanList: {
     type: Object
+  },
+  listIndex: {
+    type: Number
   }
 })
 
@@ -96,19 +101,17 @@ const isShowListHeader = () => {
   activeInput.value = !activeInput.value;
 };
 const updateListInKanbanListsMethod = (event) => {
-  store.commit("updateListInKanbanLists", { index: props.kanbanList.id, listTitle: event.target.value });
+  store.commit("updateListInKanbanLists", { index: props.listIndex, listTitle: event.target.value });
 };
-
 const activeCreateCardButton = () => {
   isActiveCreateCardButton.value = !isActiveCreateCardButton.value
 }
 const createCardInCardsMethod = () => {
   if (cardTitle.value.trim() !== '') {
-    console.log(props.kanbanList.id)
-    cardObject.value.id = store.state.kanbanLists.lists[props.kanbanList.id].cards.length;
+    cardObject.value.id = store.state.kanbanLists.lists[props.listIndex].cards.length;
     cardObject.value.cardTitle = cardTitle.value.trim();
 
-    store.commit('createCardInCards', { index: props.kanbanList.id, newCard: { ...cardObject.value } })
+    store.commit('createCardInCards', { listId: props.listIndex, newCard: { ...cardObject.value } })
 
     cardObject.value = {
       id: -1,

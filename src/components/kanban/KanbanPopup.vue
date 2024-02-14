@@ -59,7 +59,7 @@ const isActiveTitleEditing = () => {
 };
 const openCardPopupMethod = (cardId) => {
   console.log('hello')
-  store.commit('openCardPopup', { listId: -1, cardId })
+  store.commit('openCardPopup', { popupListId: -1, cardId })
 }
 
 

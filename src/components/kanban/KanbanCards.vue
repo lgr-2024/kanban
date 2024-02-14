@@ -8,6 +8,7 @@
           <div @click="openCardPopupMethod(element.id)">
             {{ element.cardTitle }}
           </div>
+          <KanbanCard />
         </template>
       </draggable>
     </template>
@@ -30,6 +31,7 @@
 <script setup>
 import { ref, defineProps } from 'vue'
 import draggable from 'vuedraggable'
+import KanbanCard from '@components/kanban/KanbanCard.vue'
 import { useStore } from 'vuex'
 
 const props = defineProps({

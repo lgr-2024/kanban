@@ -14,13 +14,13 @@
           <span class="block">{{ selectBoard }}</span>
           <label class="hidden">Board</label>
           <select v-model="selectBoard" class="button-link-select-style bg-tw-background-input-transparent">
-            <optgroup label="Devtools">
-              <option value="인트라넷">1. 인트라넷</option>
-              <option value="해주세요">2. 해주세요</option>
-              <option value="Kanban Template">Kanban Template</option>
-            </optgroup>
-            <optgroup label="Trello Workspace">
-              <option value="lgr2024" selected="selected">lgr2024</option>
+            <optgroup v-for="selectBoardOption in selectBoardOptions" :label="selectBoardOption.optgroup"
+              :key="selectBoardOption.optgroupId">
+              <option v-for="boardOption in selectBoardOption.options" :value="boardOption.board"
+                :selected="{ 'selected': boardOption.selected }" :key="boardOption.optionId"
+                @click="toggleSelect(boardOption)">{{
+                  boardOption.board }}
+              </option>
             </optgroup>
           </select>
         </div>
@@ -32,8 +32,9 @@
           <span class="button-link-value">{{ selectList }}</span>
           <label class="hidden">List</label>
           <select v-model="selectList" class="button-link-select-style">
-            <option value="To do" selected="selected">To do</option>
-            <option value="Done">Done</option>
+            <option v-for="selectListOption in selectListOptions" :value="selectListOption.list"
+              :selected="{ 'selected': selectListOption.selected }" :key="selectListOption.optionId">
+              {{ selectListOption.list }}</option>
           </select>
         </div>
         <div class="button-link-setting form-grid-child button-link px-3 py-1.5 neutral-active">
@@ -41,13 +42,9 @@
           <span class="button-link-value">{{ selectPosition }}</span>
           <label class="hidden">Position</label>
           <select v-model="selectPosition" class="button-link-select-style">
-            <option value="1" selected="selected">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
+            <option v-for="selectPositionOption in selectPositionOptions" :value="selectPositionOption.position"
+              :selected="{ 'selected': selectPositionOption.selected }" :key="selectPositionOption.optionId">{{
+                selectPositionOption.position }}</option>
           </select>
         </div>
       </div>
@@ -61,13 +58,99 @@ import { ref, defineEmits } from "vue";
 
 let move = ref("Move");
 let selectBoard = ref('lgr2024')
-let selectList = ref('To do')
+let selectList = ref('To Do')
 let selectPosition = ref('1')
+let selectBoardOptions = ref([
+  {
+    optgroupId: 0,
+    optgroup: 'Devtools',
+    options: [
+      {
+        optionId: 0,
+        board: '인트라넷',
+        selected: false,
+      },
+      {
+        optionId: 1,
+        board: '해주세요',
+        selected: false,
+      },
+      {
+        optionId: 2,
+        board: 'Kanban Template',
+        selected: false,
+      },
+    ]
+  },
+  {
+    optgroupId: 1,
+    optgroup: 'Trello Workspace',
+    options: [
+      {
+        optionId: 0,
+        board: 'lgr2024',
+        selected: false,
+      },
+    ]
+  }
+])
+let selectListOptions = ref([
+  {
+    optionId: 0,
+    list: 'To Do',
+    selected: true
+  },
+  {
+    optionId: 1,
+    list: 'Done',
+    selected: false
+  },
+])
+let selectPositionOptions = ref([
+  {
+    optionId: 0,
+    position: 1,
+    selected: true,
+  },
+  {
+    optionId: 1,
+    position: 2,
+    selected: false,
+  },
+  {
+    optionId: 2,
+    position: 3,
+    selected: false,
+  },
+  {
+    optionId: 3,
+    position: 4,
+    selected: false,
+  },
+  {
+    optionId: 4,
+    position: 5,
+    selected: false,
+  },
+  {
+    optionId: 5,
+    position: 6,
+    selected: false,
+  },
+  {
+    optionId: 6,
+    position: 7,
+    selected: false,
+  },
+])
 
 const emit = defineEmits(["closeMoveCard"]);
 
+const toggleSelect = (boardOption) => {
+  console.log(boardOption)
+  boardOption.selected = !boardOption.selected
+}
 const closeMoveCard = () => {
-  console.log("closeMoveCard");
   emit("closeMoveCard");
 };
 </script>
