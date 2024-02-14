@@ -1,12 +1,14 @@
 <template>
   <div v-if="activeDescriptionEditing === 'empty'" @click="isActiveDescriptionEditing('editing')"
     class="neutral-style neutral-active transition-ease">
-    <a href="#" class="block font-medium">{{
-      viewDescription }}</a>
+    <a href="#" class="block font-medium">
+      {{ viewDescription }}
+    </a>
   </div>
   <div v-else-if="activeDescriptionEditing === 'update'" @click="isActiveDescriptionEditing('editing')">
-    <a href="#" class="block">{{ descriptionValue
-    }}</a>
+    <a href="#" class="block">
+      {{ descriptionValue }}
+    </a>
     <a href="#" class="absolute top-0 right-0 mt-0 font-semibold neutral-style neutral-active transition-ease">
       <span>Edit</span>
     </a>
@@ -19,7 +21,9 @@
             <!-- Edit Text Styles Area -->
             <span class="flex">
               <div class="flex transparent-style transparent-active transition-ease">
-                <span class="text-center"><i class="w-6 h-6 leading-6 fa-solid fa-a"></i></span>
+                <span class="text-center">
+                  <i class="w-6 h-6 leading-6 fa-solid fa-a"></i>
+                </span>
                 <span class="text-center"><i class="w-6 h-6 leading-6 fa-solid fa-chevron-down"></i></span>
               </div>
               <span class="bg-tw-border w-[1px] h-6  leading-6 mx-2"></span>

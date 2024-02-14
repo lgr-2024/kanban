@@ -98,6 +98,10 @@ const store = useStore()
 
 let activeEditing = ref(false)
 let activeDetailsName = ref("Show details");
+let detailsName = {
+  showDetails: 'Show details',
+  hideDetails: 'Hide details'
+}
 const activityObject = {
   activityId: -1,
   profile: "",
@@ -112,12 +116,12 @@ const isActiveWatchingMethod = () => {
 };
 
 const isActiveHideDetails = () => {
-  const defaultViewName = activeDetailsName.value === "Show details";
+  const defaultViewName = activeDetailsName.value === detailsName.showDetails;
 
   if (defaultViewName) {
-    activeDetailsName.value = "Hide details";
+    activeDetailsName.value = detailsName.hideDetails;
   } else {
-    activeDetailsName.value = "Show details";
+    activeDetailsName.value = detailsName.showDetails;
   }
 };
 

@@ -75,6 +75,9 @@
 
 <script setup>
 import { ref, defineEmits } from 'vue'
+
+const emit = defineEmits(['handleSaveButton'])
+
 let activeDescriptionEditing = ref('empty');
 let viewDescription = ref('Add a more detailed description...')
 let commentValue = ref('')
@@ -92,7 +95,7 @@ const updateDescription = () => {
   activeDescriptionEditing.value = 'update';
 }
 
-const emit = defineEmits(['handleSaveButton'])
+
 const handleSaveButton = () => {
   emit('handleSaveButton')
 }
